@@ -103,17 +103,6 @@ class MainActivity : AppCompatActivity() {
         return response
     }
 
-    fun alguienGano(array: ArrayList<Int>):Boolean{
-
-        print(array)
-        var response = false
-        if( computadoraGano(array) || jugadorGano(array)){
-            response = true
-        }
-        return response
-    }
-
-
     fun jugarPC(array: ArrayList<Int>){
         var aleatorio = obtenerAleatorioLibre(array)
 
