@@ -11,7 +11,24 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-     fun obtenerAleatorio():Int{
+    var array = arrayListOf(1,2,3,4,5,6,7,8,9)
+    val jugador = "Roberto"
+    val computadora = "computadora"
+
+    fun reiniciar(){
+        array = arrayListOf(1,2,3,4,5,6,7,8,9)
+        x1.setBackgroundColor(Color.CYAN)
+        x2.setBackgroundColor(Color.CYAN)
+        x3.setBackgroundColor(Color.CYAN)
+        y1.setBackgroundColor(Color.CYAN)
+        y2.setBackgroundColor(Color.CYAN)
+        y3.setBackgroundColor(Color.CYAN)
+        z1.setBackgroundColor(Color.CYAN)
+        z2.setBackgroundColor(Color.CYAN)
+        z3.setBackgroundColor(Color.CYAN)
+    }
+
+    fun obtenerAleatorio():Int{
         val aleatorio = (0..8).random()
         return aleatorio
     }
@@ -65,6 +82,7 @@ class MainActivity : AppCompatActivity() {
     fun computadoraGano(array: ArrayList<Int>):Boolean{
         var response =false
 
+        println("entra a la fucion")
 
         if(
             (array[0] == -2 && array[1] == -2 && array[2] == -2 ) ||
@@ -77,6 +95,7 @@ class MainActivity : AppCompatActivity() {
             (array[2] == -2 && array[4] == -2 && array[6] == -2 )
         ){
             response = true
+            println(computadora)
         }
 
 
@@ -143,10 +162,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun crearAlerta(view: View){
+    fun crearAlerta(view: View, ganador: String){
         val builder = AlertDialog.Builder(view.context) // Builder needs a context
         builder.setTitle("Ganador!!")
-        builder.setMessage("Gracias por participar")
+        builder.setMessage("Gracias por participar " + ganador)
+        builder.setPositiveButton("Reiniciar") { _,_ ->
+            reiniciar()
+        }
         builder.show()
     }
 
@@ -154,19 +176,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val array = arrayListOf(1,2,3,4,5,6,7,8,9)
-
         x1.setOnClickListener(){
             x1.setBackgroundColor(Color.RED)
             array[0] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it)
+                if(jugadorGano(array))
+                    crearAlerta(it,jugador)
+                if(computadoraGano(array))
+                    crearAlerta(it,computadora)
             }
 
             if(haylibres(array)){
                 jugarPC(array)
             }
+
 
         }
 
@@ -175,13 +199,17 @@ class MainActivity : AppCompatActivity() {
             array[1] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it)
+                if(jugadorGano(array))
+                    crearAlerta(it,jugador)
+                if(computadoraGano(array))
+                    crearAlerta(it,computadora)
             }
 
 
             if(haylibres(array)){
                 jugarPC(array)
             }
+
 
         }
 
@@ -190,7 +218,10 @@ class MainActivity : AppCompatActivity() {
             array[2] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it)
+                if(jugadorGano(array))
+                    crearAlerta(it,jugador)
+                if(computadoraGano(array))
+                    crearAlerta(it,computadora)
             }
 
             if(haylibres(array)){
@@ -203,7 +234,10 @@ class MainActivity : AppCompatActivity() {
             array[3] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it)
+                if(jugadorGano(array))
+                    crearAlerta(it,jugador)
+                if(computadoraGano(array))
+                    crearAlerta(it,computadora)
             }
 
             if(haylibres(array)){
@@ -216,7 +250,10 @@ class MainActivity : AppCompatActivity() {
             array[4] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it)
+                if(jugadorGano(array))
+                    crearAlerta(it,jugador)
+                if(computadoraGano(array))
+                    crearAlerta(it,computadora)
             }
 
             if(haylibres(array)){
@@ -229,7 +266,10 @@ class MainActivity : AppCompatActivity() {
             array[5] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it)
+                if(jugadorGano(array))
+                    crearAlerta(it,jugador)
+                if(computadoraGano(array))
+                    crearAlerta(it,computadora)
             }
 
             if(haylibres(array)){
@@ -242,7 +282,10 @@ class MainActivity : AppCompatActivity() {
             array[6] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it)
+                if(jugadorGano(array))
+                    crearAlerta(it,jugador)
+                if(computadoraGano(array))
+                    crearAlerta(it,computadora)
             }
 
 
@@ -256,7 +299,10 @@ class MainActivity : AppCompatActivity() {
             array[7] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it)
+                if(jugadorGano(array))
+                    crearAlerta(it,jugador)
+                if(computadoraGano(array))
+                    crearAlerta(it,computadora)
             }
 
             if(haylibres(array)){
@@ -266,10 +312,13 @@ class MainActivity : AppCompatActivity() {
 
         z3.setOnClickListener(){
             z3.setBackgroundColor(Color.RED)
-            array[8] = -2
+            array[8] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it)
+                if(jugadorGano(array))
+                    crearAlerta(it,jugador)
+                if(computadoraGano(array))
+                    crearAlerta(it,computadora)
             }
 
 
