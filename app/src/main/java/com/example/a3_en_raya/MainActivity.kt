@@ -158,6 +158,7 @@ class MainActivity : AppCompatActivity() {
                 array[8] = -2
             }
         }
+        println("===>" + array)
 
     }
 
@@ -180,17 +181,7 @@ class MainActivity : AppCompatActivity() {
             x1.setBackgroundColor(Color.RED)
             array[0] = -1
 
-            if(alguienGano(array)){
-                if(jugadorGano(array))
-                    crearAlerta(it,jugador)
-                if(computadoraGano(array))
-                    crearAlerta(it,computadora)
-            }
-
-            if(haylibres(array)){
-                jugarPC(array)
-            }
-
+            procesarJugada(it)
 
         }
 
@@ -198,17 +189,7 @@ class MainActivity : AppCompatActivity() {
             x2.setBackgroundColor(Color.RED)
             array[1] = -1
 
-            if(alguienGano(array)){
-                if(jugadorGano(array))
-                    crearAlerta(it,jugador)
-                if(computadoraGano(array))
-                    crearAlerta(it,computadora)
-            }
-
-
-            if(haylibres(array)){
-                jugarPC(array)
-            }
+            procesarJugada(it)
 
 
         }
@@ -217,116 +198,65 @@ class MainActivity : AppCompatActivity() {
             x3.setBackgroundColor(Color.RED)
             array[2] = -1
 
-            if(alguienGano(array)){
-                if(jugadorGano(array))
-                    crearAlerta(it,jugador)
-                if(computadoraGano(array))
-                    crearAlerta(it,computadora)
-            }
-
-            if(haylibres(array)){
-                jugarPC(array)
-            }
+            procesarJugada(it)
         }
 
         y1.setOnClickListener(){
             y1.setBackgroundColor(Color.RED)
             array[3] = -1
 
-            if(alguienGano(array)){
-                if(jugadorGano(array))
-                    crearAlerta(it,jugador)
-                if(computadoraGano(array))
-                    crearAlerta(it,computadora)
-            }
-
-            if(haylibres(array)){
-                jugarPC(array)
-            }
+            procesarJugada(it)
         }
 
         y2.setOnClickListener(){
             y2.setBackgroundColor(Color.RED)
             array[4] = -1
 
-            if(alguienGano(array)){
-                if(jugadorGano(array))
-                    crearAlerta(it,jugador)
-                if(computadoraGano(array))
-                    crearAlerta(it,computadora)
-            }
-
-            if(haylibres(array)){
-                jugarPC(array)
-            }
+            procesarJugada(it)
         }
 
         y3.setOnClickListener(){
             y3.setBackgroundColor(Color.RED)
             array[5] = -1
 
-            if(alguienGano(array)){
-                if(jugadorGano(array))
-                    crearAlerta(it,jugador)
-                if(computadoraGano(array))
-                    crearAlerta(it,computadora)
-            }
-
-            if(haylibres(array)){
-                jugarPC(array)
-            }
+            procesarJugada(it)
         }
 
         z1.setOnClickListener(){
             z1.setBackgroundColor(Color.RED)
             array[6] = -1
 
-            if(alguienGano(array)){
-                if(jugadorGano(array))
-                    crearAlerta(it,jugador)
-                if(computadoraGano(array))
-                    crearAlerta(it,computadora)
-            }
-
-
-            if(haylibres(array)){
-                jugarPC(array)
-            }
+            procesarJugada(it)
         }
 
         z2.setOnClickListener(){
             z2.setBackgroundColor(Color.RED)
             array[7] = -1
 
-            if(alguienGano(array)){
-                if(jugadorGano(array))
-                    crearAlerta(it,jugador)
-                if(computadoraGano(array))
-                    crearAlerta(it,computadora)
-            }
-
-            if(haylibres(array)){
-                jugarPC(array)
-            }
+            procesarJugada(it)
         }
 
         z3.setOnClickListener(){
             z3.setBackgroundColor(Color.RED)
             array[8] = -1
 
-            if(alguienGano(array)){
-                if(jugadorGano(array))
-                    crearAlerta(it,jugador)
-                if(computadoraGano(array))
-                    crearAlerta(it,computadora)
-            }
-
-
-            if(haylibres(array)){
-                jugarPC(array)
-            }
+            procesarJugada(it)
         }
 
+    }
 
+    private fun procesarJugada(it: View) {
+        if (jugadorGano(array))
+            crearAlerta(it, jugador)
+
+        if (haylibres(array)) {
+            jugarPC(array)
+        }
+
+        if (computadoraGano(array))
+            crearAlerta(it, computadora)
+
+        if(!haylibres(array))
+            reiniciar()
     }
 }
