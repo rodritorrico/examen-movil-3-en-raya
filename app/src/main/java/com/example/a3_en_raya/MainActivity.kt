@@ -143,47 +143,25 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun crearAlerta(context: Context){
-
-        println("ALERTA")
-
-
+    fun crearAlerta(view: View){
+        val builder = AlertDialog.Builder(view.context) // Builder needs a context
+        builder.setTitle("Ganador!!")
+        builder.setMessage("Gracias por participar")
+        builder.show()
     }
-
-//    fun selected(view: View)
-//    {
-//        println("ALERTA")
-//
-//        val builder = AlertDialog.Builder(view.context)
-//        builder.setTitle("Android Alert")
-//        builder.setMessage("We have a message")
-//
-//        builder.setPositiveButton("Ok") { _, _ ->
-//            Toast.makeText(view.context, "Okey", Toast.LENGTH_LONG).show()
-//        }
-//
-//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         val array = arrayListOf(1,2,3,4,5,6,7,8,9)
-
-
-
-
-
-
 
         x1.setOnClickListener(){
             x1.setBackgroundColor(Color.RED)
             array[0] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it.context)
+                crearAlerta(it)
             }
 
             if(haylibres(array)){
@@ -197,7 +175,7 @@ class MainActivity : AppCompatActivity() {
             array[1] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it.context)
+                crearAlerta(it)
             }
 
 
@@ -212,7 +190,7 @@ class MainActivity : AppCompatActivity() {
             array[2] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it.context)
+                crearAlerta(it)
             }
 
             if(haylibres(array)){
@@ -225,7 +203,7 @@ class MainActivity : AppCompatActivity() {
             array[3] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it.context)
+                crearAlerta(it)
             }
 
             if(haylibres(array)){
@@ -238,7 +216,7 @@ class MainActivity : AppCompatActivity() {
             array[4] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it.context)
+                crearAlerta(it)
             }
 
             if(haylibres(array)){
@@ -251,7 +229,7 @@ class MainActivity : AppCompatActivity() {
             array[5] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it.context)
+                crearAlerta(it)
             }
 
             if(haylibres(array)){
@@ -264,7 +242,7 @@ class MainActivity : AppCompatActivity() {
             array[6] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it.context)
+                crearAlerta(it)
             }
 
 
@@ -278,7 +256,7 @@ class MainActivity : AppCompatActivity() {
             array[7] = -1
 
             if(alguienGano(array)){
-                crearAlerta(it.context)
+                crearAlerta(it)
             }
 
             if(haylibres(array)){
@@ -291,7 +269,7 @@ class MainActivity : AppCompatActivity() {
             array[8] = -2
 
             if(alguienGano(array)){
-                crearAlerta(it.context)
+                crearAlerta(it)
             }
 
 
