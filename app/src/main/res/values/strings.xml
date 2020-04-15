@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">3-en-raya</string>
+    <string name="title">Juego</string>
+    <string name="playerA">Jugador A</string>
+    <string name="playerB">Jugador B</string>
+    <string name="nameA">Roberto</string>
+    <string name="nameB">IMac</string>
+
 </resources>
